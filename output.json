@@ -1,0 +1,23 @@
+[
+  {
+    "name": "james",
+    "age": 52,
+    "location": "liverpool"
+  },
+  {
+    "name": "mary",
+    "age": 27,
+    "location": "st. helens"
+  },
+  {
+    "name": "bob",
+    "age": 23,
+    "location": "runcorn"
+  },
+  {
+    "name": "sarah",
+    "age": null,
+    "location": "warrington",
+    "degree": "BA 2:1 Art"
+  }
+]
