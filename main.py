@@ -2,6 +2,7 @@ from frequency_graph import FrequencyGraph
 from list_to_json import ListToJSON
 from message import Message
 from encoder import Encoder
+from fetch_requests import FetchRequests
 
 from strategy_pattern import CompressMP4, CompressMOV, CompressWEBM, Video_Storage
 
@@ -40,6 +41,9 @@ from export_to_json import  ExportList, Exporter, ExportCSV
 # my_readable_message = Encoder(encoded_message)
 # print(my_readable_message.decode_message())
 
+# http request example
+# request = FetchRequests("https://jsonplaceholder.typicode.com/")
+# print(request.get_data("posts/1"))
 
 # strategy design pattern and dependency injecection example using abstract class. 
 # video_storage1 = Video_Storage(CompressMOV())
@@ -69,3 +73,6 @@ export_csv = Exporter(ExportCSV("test_users.csv"))
 export_csv.export()
 #print(export_csv.json_object)
 export_csv.write_to_file("test_users.json")
+
+
+
