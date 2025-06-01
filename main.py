@@ -3,10 +3,9 @@ from list_to_json import ListToJSON
 from message import Message
 from encoder import Encoder
 
-from strategy_pattern.video_storage import Video_Storage
-from strategy_pattern.compress_mov import CompressMOV
-from strategy_pattern.compress_mp4 import CompressMP4
-from strategy_pattern.compress_webm import CompressWEBM
+from strategy_pattern import CompressMP4, CompressMOV, CompressWEBM, Video_Storage
+
+from export_to_json import  ExportList, Exporter, ExportCSV
 
 # frequency graph
 # source_data = [1, None, 2, 3, "i", 4, 1, 1, None, 2, 3, 4, 4, 4]
@@ -43,9 +42,30 @@ from strategy_pattern.compress_webm import CompressWEBM
 
 
 # strategy design pattern and dependency injecection example using abstract class. 
-video_storage1 = Video_Storage(CompressMOV())
-video_storage1.store("video.mov")
-video_storage2 = Video_Storage(CompressMP4())
-video_storage2.store("test.mp4")
-video_storage3 = Video_Storage(CompressWEBM())
-video_storage3.store("test.webm")
+# video_storage1 = Video_Storage(CompressMOV())
+# video_storage1.store("video.mov")
+# video_storage2 = Video_Storage(CompressMP4())
+# video_storage2.store("test.mp4")
+# video_storage3 = Video_Storage(CompressWEBM())
+# video_storage3.store("test.webm")
+
+
+# a re-factor of the class list_to_json (above) to comply with SOLID principles.
+# list to json....
+schema = ["name", "age", "location", "degree"]
+input_list= [
+  ["james", 52, "liverpool"],
+  ["mary", 27, "st. helens"],
+  ["bob", 23, "runcorn"],
+  ["sarah", None, "warrington", "BA 2:1 Art"],
+]
+export_list = Exporter(ExportList(input_list, schema))
+export_list.export()
+#print(export_list.json_object)
+export_list.write_to_file("output.json")
+
+# csv to json...
+export_csv = Exporter(ExportCSV("test_users.csv"))
+export_csv.export()
+#print(export_csv.json_object)
+export_csv.write_to_file("test_users.json")

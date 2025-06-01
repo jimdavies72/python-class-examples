@@ -1,4 +1,4 @@
-from strategy_pattern.compress import Compress
+from strategy_pattern import Compress
 
 # concrete compression class - MOV
 class CompressMOV(Compress):

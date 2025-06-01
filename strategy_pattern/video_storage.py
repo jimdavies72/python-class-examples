@@ -1,11 +1,10 @@
-from strategy_pattern.compress import Compress
+from strategy_pattern import Compress
 
 class Video_Storage:
 
   def __init__(self, compress: Compress) -> None:
     self.__compress = compress
     
-  
   @property
   def compress(self):
     return self.__compress
